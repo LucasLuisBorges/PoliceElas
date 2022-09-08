@@ -1,9 +1,14 @@
-import { Box, HStack } from '@chakra-ui/react';
-import { BellNotification } from './bellNotification';
-import { ProfileMenu } from './profileMenu';
-import { SearchInputMenu } from './searchInputMenu';
+import { Box, HStack, useDisclosure } from '@chakra-ui/react';
+import {
+  BellNotification,
+  ProfileMenu,
+  SearchInputMenu,
+  MyAccountModal,
+  HelpModal,
+} from './';
 
 export function HorizontalMenu() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <HStack
       h="8vh"
@@ -20,8 +25,12 @@ export function HorizontalMenu() {
         <ProfileMenu
           name="Lucas Policial"
           urlImage="https://github.com/LucasLuisBorges.png"
+          onMyAccount={onOpen}
+          onHelp={onOpen}
         />
       </HStack>
+      <MyAccountModal isOpen={isOpen} onClose={onClose} />
+      <HelpModal isOpen={isOpen} onClose={onClose} />
     </HStack>
   );
 }

@@ -13,9 +13,16 @@ import { IoIosArrowDown } from 'react-icons/io';
 interface ProfileMenuProps {
   name: string;
   urlImage: string;
+  onMyAccount: () => void;
+  onHelp: () => void;
 }
 
-export function ProfileMenu({ name, urlImage }: ProfileMenuProps) {
+export function ProfileMenu({
+  name,
+  urlImage,
+  onMyAccount,
+  onHelp,
+}: ProfileMenuProps) {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<IoIosArrowDown />} bg="white">
@@ -31,7 +38,7 @@ export function ProfileMenu({ name, urlImage }: ProfileMenuProps) {
         </HStack>
       </MenuButton>
       <MenuList>
-        <MenuItem minH="48px">
+        <MenuItem minH="48px" onClick={onMyAccount}>
           <Image
             boxSize="2rem"
             borderRadius="full"
@@ -41,7 +48,7 @@ export function ProfileMenu({ name, urlImage }: ProfileMenuProps) {
           />
           <span>Minha conta</span>
         </MenuItem>
-        <MenuItem minH="40px">
+        <MenuItem minH="40px" onClick={onHelp}>
           <Image
             boxSize="2rem"
             borderRadius="full"

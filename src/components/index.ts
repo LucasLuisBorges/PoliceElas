@@ -9,6 +9,8 @@ import { BellNotification } from './bellNotification';
 import { SearchInputMenu } from './searchInputMenu';
 import { OccurrenceCard } from './occurrenceCard';
 import { OccurrenceTableCard } from './occurrenceTableCard';
+import { HelpModal } from './helpModal';
+import { MyAccountModal } from './myAccountModal';
 
 export {
   BaseInput,
@@ -22,4 +24,6 @@ export {
   SearchInputMenu,
   OccurrenceCard,
   OccurrenceTableCard,
+  HelpModal,
+  MyAccountModal,
 };

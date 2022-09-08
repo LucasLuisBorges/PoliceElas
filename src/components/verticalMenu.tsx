@@ -42,7 +42,7 @@ export function VerticalMenu() {
         <AiFillTool size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated link="" tooltip="Sair">
+      <LinkIconAnimated link="/login" tooltip="Sair">
         <ImExit size={24} color="white" />
       </LinkIconAnimated>
     </VStack>
