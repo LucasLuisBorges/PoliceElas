@@ -2,29 +2,30 @@ import {
   Box,
   Text,
   VStack,
-  InputGroup,
-  InputLeftElement,
-  Input,
-  InputRightElement,
-  Button,
   HStack,
   Checkbox,
   Link,
   ScaleFade,
 } from '@chakra-ui/react';
-import { useState } from 'react';
-import {
-  AiOutlineUser,
-  AiFillEye,
-  AiFillEyeInvisible,
-  AiOutlineLock,
-} from 'react-icons/ai';
-import { BeatLoader } from 'react-spinners';
+import { useForm, FieldValues } from 'react-hook-form';
+import { BaseInput, BasePasswordInput } from '../components';
+
+import { AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
+import { BaseButton } from '../components/baseButton';
+
+interface ValuesProps extends FieldValues {
+  user: string;
+  password: string;
+}
 
 export function LoginAndRegister() {
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
+  const { handleSubmit, control, reset } = useForm();
 
+  function onSubmit(values: ValuesProps) {
+    console.log(values);
+
+    reset();
+  }
   return (
     <Box
       display="flex"
@@ -36,12 +37,13 @@ export function LoginAndRegister() {
     >
       <ScaleFade initialScale={0.5} in={true}>
         <VStack
-          w="450px"
+          w={{ base: '350px', ssm: '450px' }}
           bg="white"
           py={20}
           boxShadow="2xl"
           rounded={5}
           spacing={10}
+          transition="1s"
         >
           <VStack>
             <Text fontSize={28} color="blue.800" fontWeight="bold">
@@ -51,63 +53,37 @@ export function LoginAndRegister() {
               Faça login para entrar na plataforma
             </Text>
           </VStack>
-          <VStack w="90%" spacing={5}>
-            <InputGroup size="lg">
-              <InputLeftElement
-                pointerEvents="none"
-                children={<AiOutlineUser color="gray" size={24} />}
-              />
-              <Input
-                size="lg"
-                type="text"
-                placeholder="Usuário"
-                _placeholder={{ color: 'blue.800' }}
-                focusBorderColor="gray"
-              />
-            </InputGroup>
-            <InputGroup size="lg">
-              <Input
-                type={show ? 'text' : 'password'}
-                placeholder="Senha"
-                _placeholder={{ color: 'blue.800' }}
-                focusBorderColor="gray"
-              />
-              <InputLeftElement
-                pointerEvents="none"
-                children={<AiOutlineLock color="gray" size={24} />}
-              />
-              <InputRightElement width="4.5rem">
-                <Button
-                  size="sm"
-                  onClick={handleClick}
-                  bg="transparent"
-                  _hover={{ bg: 'transparent' }}
-                >
-                  {show ? (
-                    <AiFillEyeInvisible color="gray" size={24} />
-                  ) : (
-                    <AiFillEye color="gray" size={24} />
-                  )}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            <HStack w="100%" justifyContent="space-between">
-              <Checkbox size="md" colorScheme="blue">
-                lembrar senha
-              </Checkbox>
-              <Link>Esqueceu a senha</Link>
-            </HStack>
-          </VStack>
-          <Button
-            w="90%"
-            color="white"
-            bg="blue.600"
-            py={7}
-            _hover={{ bg: 'blue.500', transition: '0.5s' }}
-            spinner={<BeatLoader size={8} color="white" />}
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
           >
-            Entrar
-          </Button>
+            <VStack w="90%" spacing={5}>
+              <BaseInput name="user" placeholder="Usuário" control={control}>
+                <AiOutlineUser color="gray" size={24} />
+              </BaseInput>
+              <BasePasswordInput
+                placeholder="Senha"
+                control={control}
+                name="password"
+              >
+                <AiOutlineLock color="gray" size={24} />
+              </BasePasswordInput>
+
+              <HStack w="100%" justifyContent="space-between">
+                <Checkbox size="md" colorScheme="blue">
+                  lembrar senha
+                </Checkbox>
+                <Link>Esqueceu a senha</Link>
+              </HStack>
+              <Box w="90%">
+                <BaseButton title="Entrar" type="submit" />
+              </Box>
+            </VStack>
+          </form>
         </VStack>
       </ScaleFade>
     </Box>
