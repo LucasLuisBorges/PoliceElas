@@ -19,7 +19,7 @@ interface ValuesProps extends FieldValues {
 }
 
 export function LoginAndRegister() {
-  const { handleSubmit, control, reset } = useForm();
+  const { handleSubmit, control, reset } = useForm<ValuesProps>();
 
   function onSubmit(values: ValuesProps) {
     console.log(values);

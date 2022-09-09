@@ -39,7 +39,7 @@ export function OccurrenceTableCard({
 
         {blur ? (
           <Box pos="relative" w="160px">
-            <Text fontSize={16} color="black">
+            <Text fontSize={16} color="black" userSelect="none">
               {name}
             </Text>
             <Box pos="absolute" w="100%" h="10px" bg="black" top={2.5} />
@@ -52,7 +52,7 @@ export function OccurrenceTableCard({
       </HStack>
       {blur ? (
         <Box pos="relative" w="85px">
-          <Text fontSize={14} color="black">
+          <Text fontSize={14} color="black" userSelect="none">
             {number}
           </Text>
           <Box pos="absolute" w="100%" h="8px" bg="black" top={2} />
@@ -64,7 +64,7 @@ export function OccurrenceTableCard({
       )}
       {blur ? (
         <Box pos="relative" w="130px">
-          <Text fontSize={14} color="black">
+          <Text fontSize={14} color="black" userSelect="none">
             {date}
           </Text>
           <Box pos="absolute" w="100%" h="8px" bg="black" top={2} />
@@ -76,7 +76,7 @@ export function OccurrenceTableCard({
       )}
       {blur ? (
         <Box pos="relative">
-          <Text fontSize={14} color="black" w="120px">
+          <Text fontSize={14} color="black" w="120px" userSelect="none">
             {city}
           </Text>
           <Box pos="absolute" w="100%" h="8px" bg="black" top={2} />

@@ -11,9 +11,11 @@ export function OccurrenceCard({ amount, title }: OccurrenceCardProps) {
       bg="white"
       rounded={12}
       py={5}
-      px={5}
-      w="293px"
+      px="5"
+      flex="1"
       alignItems="start"
+      h="full"
+      w="full"
       boxShadow="lg"
     >
       <Text fontSize={34} fontWeight="bold" color="black">

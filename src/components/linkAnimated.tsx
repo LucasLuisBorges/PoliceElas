@@ -16,7 +16,6 @@ export function LinkIconAnimated({ children, link, tooltip }: IProps) {
       bg="whiteAlpha.800"
     >
       <Link
-        target="_blank"
         pos="relative"
         href={link}
         _after={{

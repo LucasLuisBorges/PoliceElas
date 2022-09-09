@@ -8,7 +8,16 @@ import {
 } from './';
 
 export function HorizontalMenu() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isOpenAccountModal,
+    onOpen: onOpenAccountModal,
+    onClose: onCloseAccountModal,
+  } = useDisclosure();
+  const {
+    isOpen: isOpenHelpModal,
+    onOpen: onOpenHelpModal,
+    onClose: onCloseHelpModal,
+  } = useDisclosure();
   return (
     <HStack
       h="8vh"
@@ -25,12 +34,15 @@ export function HorizontalMenu() {
         <ProfileMenu
           name="Lucas Policial"
           urlImage="https://github.com/LucasLuisBorges.png"
-          onMyAccount={onOpen}
-          onHelp={onOpen}
+          onMyAccount={onOpenAccountModal}
+          onHelp={onOpenHelpModal}
         />
       </HStack>
-      <MyAccountModal isOpen={isOpen} onClose={onClose} />
-      <HelpModal isOpen={isOpen} onClose={onClose} />
+      <MyAccountModal
+        isOpen={isOpenAccountModal}
+        onClose={onCloseAccountModal}
+      />
+      <HelpModal isOpen={isOpenHelpModal} onClose={onCloseHelpModal} />
     </HStack>
   );
 }

@@ -12,13 +12,13 @@ export function MainScreen() {
   }
   return (
     <>
-      <HStack spacing={10} h="15vh">
+      <HStack spacing={2} w="full">
         <OccurrenceCard amount={5} title="Novas Ocorrências" />
-        <OccurrenceCard amount={23} title="Ocorrências Atendidas" />
         <OccurrenceCard amount={3} title="Ocorrências Em  Atendimento" />
+        <OccurrenceCard amount={23} title="Ocorrências Atendidas" />
       </HStack>
-      <Box w="960px" h="40vh" bg="white" rounded={12} boxShadow="lg">
-        <HStack justifyContent="space-between" px={5} py={2}>
+      <Box w="full" h="45vh" bg="white" rounded={12} boxShadow="lg" py={2}>
+        <HStack justifyContent="space-between" px={5} overflow="hidden">
           <Text fontSize={16} fontWeight="bold" color="black">
             Últimas ocorrências
           </Text>
@@ -53,7 +53,14 @@ export function MainScreen() {
             city="Florianopolis"
             status="Atendimento"
           />
-
+          <OccurrenceTableCard
+            name="Regina de sousa"
+            urlImage="https://github.com/LucasLuisBorges.png"
+            number="48 9989-9998"
+            date="04/08/2022 - 14:45h"
+            city="Florianopolis"
+            status="Atendimento"
+          />
           <OccurrenceTableCard
             name="Lucas Aguiar"
             urlImage="https://github.com/LucasAguiarr.png"
@@ -105,7 +112,7 @@ export function MainScreen() {
           />
         </VStack>
       </Box>
-      <Box w="650px" h="30vh" bg="white" rounded={12} boxShadow="lg" />
+      <Box w="full" h="30vh" bg="white" rounded={12} boxShadow="lg" />
     </>
   );
 }
