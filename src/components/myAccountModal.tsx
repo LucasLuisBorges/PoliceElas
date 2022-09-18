@@ -7,6 +7,8 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Text,
+  VStack,
 } from '@chakra-ui/react';
 
 interface MyAccountModalProps {
@@ -19,17 +21,29 @@ export function MyAccountModal({ isOpen, onClose }: MyAccountModalProps) {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Account Modal</ModalHeader>
+        <ModalHeader>Informações da conta</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <VStack alignItems="start">
+            <Text>
+              <strong>Nome:</strong> Lucas Policial
+            </Text>
+            <Text>
+              <strong>Idade:</strong> 23 anos
+            </Text>
+            <Text>
+              <strong>Numero de registro:</strong> 121212121
+            </Text>
+            <Text>
+              <strong>Departamento:</strong> 1212-20
+            </Text>
+          </VStack>
         </ModalBody>
 
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
+          <Button colorScheme="blue" mr={3}>
+            Editar
           </Button>
-          <Button variant="ghost">Secondary Action</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

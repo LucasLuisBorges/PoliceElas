@@ -1,5 +1,6 @@
 import { Box, Flex, VStack } from '@chakra-ui/react';
 import { HorizontalMenu, VerticalMenu } from '../components';
+import { HistoryScreen } from './screens/historySection';
 import { MainScreen } from './screens/mainScreen';
 
 export function Dashboard() {

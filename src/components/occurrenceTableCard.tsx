@@ -1,4 +1,11 @@
-import { Avatar, Box, Button, HStack, Text } from '@chakra-ui/react';
+import {
+  Avatar,
+  Box,
+  Button,
+  HStack,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { useContext } from 'react';
 import { TableContext } from '../context/tableContext';
 
@@ -10,6 +17,7 @@ interface OccurrenceTableCardProps {
   city: string;
   status: 'Aguardando' | 'Atendimento' | 'Atendido';
 }
+import { ConfirmAlert } from './confirmAlert';
 
 export function OccurrenceTableCard({
   name,
@@ -20,8 +28,30 @@ export function OccurrenceTableCard({
   status,
 }: OccurrenceTableCardProps) {
   const { blur } = useContext(TableContext);
+  const {
+    onOpen: onOpenAccept,
+    isOpen: isOpenAccept,
+    onClose: onCloseAccept,
+  } = useDisclosure();
+  const {
+    onOpen: onOpenReject,
+    isOpen: isOpenReject,
+    onClose: onCloseReject,
+  } = useDisclosure();
   return (
     <HStack justifyContent="space-between" w="100%">
+      <ConfirmAlert
+        isOpen={isOpenAccept}
+        onClose={onCloseAccept}
+        title="Ação solicitada"
+        message="Deseja aceitar a ocorrencia?"
+      />
+      <ConfirmAlert
+        isOpen={isOpenReject}
+        onClose={onCloseReject}
+        title="Ação solicitada"
+        message="Deseja rejeitar a ocorrencia?"
+      />
       <HStack>
         {blur ? (
           <Box pos="relative">
@@ -96,6 +126,7 @@ export function OccurrenceTableCard({
             color="blue.600"
             size="sm"
             isDisabled={blur && true}
+            onClick={onOpenAccept}
           >
             ✓
           </Button>
@@ -107,6 +138,7 @@ export function OccurrenceTableCard({
             color="red.600"
             size="sm"
             isDisabled={blur && true}
+            onClick={onOpenReject}
           >
             X
           </Button>

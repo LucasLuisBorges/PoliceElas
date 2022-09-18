@@ -7,6 +7,7 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Text,
 } from '@chakra-ui/react';
 
 interface MyAccountModalProps {
@@ -19,17 +20,19 @@ export function HelpModal({ isOpen, onClose }: MyAccountModalProps) {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Help Modal</ModalHeader>
+        <ModalHeader>Ajuda</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          <Text>
+            Em caso de qualquer ajuda constatar a documentação, caso não esteja
+            listado...
+          </Text>
         </ModalBody>
 
         <ModalFooter>
           <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
+            Fechar
           </Button>
-          <Button variant="ghost">Secondary Action</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

@@ -3,9 +3,8 @@ import { useContext } from 'react';
 import { OccurrenceCard, OccurrenceTableCard } from '../../components';
 import { TableContext } from '../../context/tableContext';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import { Graphc } from '../../components/graphc';
 
-export function MainScreen() {
+export function HistoryScreen() {
   const { blur, setBlur } = useContext(TableContext);
 
   function handleShowOrHideTableContent() {
@@ -18,10 +17,10 @@ export function MainScreen() {
         <OccurrenceCard amount={3} title="Ocorrências Em  Atendimento" />
         <OccurrenceCard amount={23} title="Ocorrências Atendidas" />
       </HStack>
-      <Box w="full" h="45vh" bg="white" rounded={12} boxShadow="lg" py={2}>
+      <Box w="full" maxH="70vh" bg="white" rounded={12} boxShadow="lg" py={2}>
         <HStack justifyContent="space-between" px={5} overflow="hidden">
           <Text fontSize={16} fontWeight="bold" color="black">
-            Últimas ocorrências
+            Todas ocorrências
           </Text>
           <IconButton
             aria-label="Search database"
@@ -37,7 +36,7 @@ export function MainScreen() {
             }
           />
         </HStack>
-        <VStack alignItems="start" px={5} mr={5} overflowY="scroll" maxH="30vh">
+        <VStack alignItems="start" px={5} mr={5} overflowY="scroll" maxH="55vh">
           <OccurrenceTableCard
             name="Lucas Borges"
             urlImage="https://github.com/LucasLuisBorges.png"
@@ -111,10 +110,39 @@ export function MainScreen() {
             city="Florianopolis"
             status="Aguardando"
           />
+          <OccurrenceTableCard
+            name="Regina de sousa"
+            urlImage="https://github.com/LucasLuisBorges.png"
+            number="48 9989-9998"
+            date="04/08/2022 - 14:45h"
+            city="Florianopolis"
+            status="Aguardando"
+          />
+          <OccurrenceTableCard
+            name="Regina de sousa"
+            urlImage="https://github.com/LucasLuisBorges.png"
+            number="48 9989-9998"
+            date="04/08/2022 - 14:45h"
+            city="Florianopolis"
+            status="Aguardando"
+          />
+          <OccurrenceTableCard
+            name="Regina de sousa"
+            urlImage="https://github.com/LucasLuisBorges.png"
+            number="48 9989-9998"
+            date="04/08/2022 - 14:45h"
+            city="Florianopolis"
+            status="Aguardando"
+          />
+          <OccurrenceTableCard
+            name="Regina de sousa"
+            urlImage="https://github.com/LucasLuisBorges.png"
+            number="48 9989-9998"
+            date="04/08/2022 - 14:45h"
+            city="Florianopolis"
+            status="Aguardando"
+          />
         </VStack>
-      </Box>
-      <Box w="full" h="30vh" bg="white" rounded={12} boxShadow="lg">
-        <Graphc />
       </Box>
     </>
   );

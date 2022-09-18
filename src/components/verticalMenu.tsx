@@ -26,23 +26,23 @@ export function VerticalMenu() {
           <AiFillAppstore size={34} color="white" />
         </MotionBox>
       </Box>
-      <LinkIconAnimated link="" tooltip="Histórico">
+      <LinkIconAnimated href="" tooltip="Histórico">
         <AiFillContainer size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated link="" tooltip="Mensagens">
+      <LinkIconAnimated tooltip="Mensagens">
         <AiFillMail size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated link="" tooltip="Chamadas">
+      <LinkIconAnimated tooltip="Chamadas">
         <AiFillPhone size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated link="" tooltip="Configurações">
+      <LinkIconAnimated tooltip="Configurações">
         <AiFillTool size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated link="/login" tooltip="Sair">
+      <LinkIconAnimated href="/login" tooltip="Sair">
         <ImExit size={24} color="white" />
       </LinkIconAnimated>
     </VStack>

@@ -1,13 +1,12 @@
-import { Link, Tooltip } from '@chakra-ui/react';
+import { Link, Tooltip, LinkProps } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
-interface IProps {
-  link: string;
+interface IProps extends LinkProps {
   children: ReactNode;
   tooltip?: string;
 }
 
-export function LinkIconAnimated({ children, link, tooltip }: IProps) {
+export function LinkIconAnimated({ children, tooltip, ...rest }: IProps) {
   return (
     <Tooltip
       label={tooltip}
@@ -16,8 +15,8 @@ export function LinkIconAnimated({ children, link, tooltip }: IProps) {
       bg="whiteAlpha.800"
     >
       <Link
+        {...rest}
         pos="relative"
-        href={link}
         _after={{
           content: `""`,
           pos: 'absolute',
