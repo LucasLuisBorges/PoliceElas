@@ -1,8 +1,8 @@
 import { Box, Flex, VStack } from '@chakra-ui/react';
 import { HorizontalMenu, VerticalMenu } from '../components';
-import { MainScreen } from './content/mainScreen';
+import { HistoryScreen } from './content/historySection';
 
-export function Dashboard() {
+export function History() {
   return (
     <Flex w="100%" maxH="100vh" bg="#f2f2f2" pos="relative">
       <VerticalMenu />
@@ -10,7 +10,7 @@ export function Dashboard() {
         <HorizontalMenu />
       </Box>
       <VStack mt="5vh" w="80%" p={10} alignItems="start">
-        <MainScreen />
+        <HistoryScreen />
       </VStack>
     </Flex>
   );

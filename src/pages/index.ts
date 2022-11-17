@@ -1,4 +1,5 @@
 import { LoginAndRegister } from './loginAndRegister';
 import { Dashboard } from './dashboard';
+import { History } from './history';
 
-export { LoginAndRegister, Dashboard };
+export { LoginAndRegister, Dashboard, History };

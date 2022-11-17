@@ -2,7 +2,7 @@ import { VStack, Box } from '@chakra-ui/react';
 import {
   AiFillAppstore,
   AiFillContainer,
-  AiFillMail,
+  AiFillHome,
   AiFillPhone,
   AiFillTool,
 } from 'react-icons/ai';
@@ -26,12 +26,13 @@ export function VerticalMenu() {
           <AiFillAppstore size={34} color="white" />
         </MotionBox>
       </Box>
-      <LinkIconAnimated href="" tooltip="Histórico">
-        <AiFillContainer size={24} color="white" />
+
+      <LinkIconAnimated href="/" tooltip="Inicio">
+        <AiFillHome size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated tooltip="Mensagens">
-        <AiFillMail size={24} color="white" />
+      <LinkIconAnimated href="/history" tooltip="Histórico">
+        <AiFillContainer size={24} color="white" />
       </LinkIconAnimated>
 
       <LinkIconAnimated tooltip="Chamadas">
