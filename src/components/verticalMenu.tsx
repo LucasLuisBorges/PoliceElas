@@ -1,4 +1,5 @@
 import { VStack, Box } from '@chakra-ui/react';
+import { useContext } from 'react';
 import {
   AiFillAppstore,
   AiFillContainer,
@@ -8,9 +9,11 @@ import {
 } from 'react-icons/ai';
 import { ImExit } from 'react-icons/im';
 import { animatedBox, MotionBox } from '../animations/verticalMenuAnamation';
+import { AuthContext } from '../context/Auth';
 import { LinkIconAnimated } from './';
 
 export function VerticalMenu() {
+  const { signOut } = useContext(AuthContext);
   return (
     <VStack
       w="80px"
@@ -43,7 +46,7 @@ export function VerticalMenu() {
         <AiFillTool size={24} color="white" />
       </LinkIconAnimated>
 
-      <LinkIconAnimated href="/login" tooltip="Sair">
+      <LinkIconAnimated href="/login" tooltip="Sair" onClick={signOut}>
         <ImExit size={24} color="white" />
       </LinkIconAnimated>
     </VStack>

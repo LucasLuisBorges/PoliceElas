@@ -9,7 +9,6 @@ import {
 } from '@chakra-ui/react';
 import { useForm, FieldValues } from 'react-hook-form';
 import { BaseInput, BasePasswordInput } from '../components';
-
 import { AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
 import { BaseButton } from '../components/baseButton';
 import { AuthContext } from '../context/Auth';
@@ -32,8 +31,9 @@ export function LoginAndRegister() {
         email: values.email,
         password: values.password,
       });
+
+      redirect('/dashboard');
       reset();
-      redirect('/dash');
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +78,7 @@ export function LoginAndRegister() {
               <BaseInput name="email" placeholder="Email" control={control}>
                 <AiOutlineUser color="gray" size={24} />
               </BaseInput>
+
               <BasePasswordInput
                 placeholder="Senha"
                 control={control}
@@ -90,8 +91,10 @@ export function LoginAndRegister() {
                 <Checkbox size="md" colorScheme="blue">
                   lembrar senha
                 </Checkbox>
+
                 <Link>Esqueceu a senha</Link>
               </HStack>
+
               <Box w="90%">
                 <BaseButton title="Entrar" type="submit" />
               </Box>

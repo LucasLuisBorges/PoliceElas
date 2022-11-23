@@ -13,11 +13,13 @@ export function HorizontalMenu() {
     onOpen: onOpenAccountModal,
     onClose: onCloseAccountModal,
   } = useDisclosure();
+
   const {
     isOpen: isOpenHelpModal,
     onOpen: onOpenHelpModal,
     onClose: onCloseHelpModal,
   } = useDisclosure();
+
   return (
     <HStack
       h="8vh"

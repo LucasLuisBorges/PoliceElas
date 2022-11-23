@@ -1,66 +1,50 @@
 import { LineChart, Line, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-const data = [
-  {
-    name: 'Page A',
-    atendidas: 10,
-    rejeitadas: 24,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    atendidas: 13,
-    rejeitadas: 13,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    atendidas: 20,
-    rejeitadas: 9,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    atendidas: 20,
-    rejeitadas: 39,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    atendidas: 20,
-    rejeitadas: 48,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    atendidas: 15,
-    rejeitadas: 38,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    atendidas: 30,
-    rejeitadas: 43,
-    amt: 2100,
-  },
-];
+import { Call } from '../pages/content/mainScreen';
 
-export function Graphc() {
+interface GraphcPrpos {
+  data: Call[];
+}
+export function Graphc({ data }: GraphcPrpos) {
+  const newData = data.map(call => {
+    return {
+      accepted: call.status === 'Concluded' ? 1 : 2,
+      inProgress: call.status === 'In progress' ? 1 : 2,
+      waiting: call.status === 'Waiting' ? 1 : 2,
+      rejected: call.status === 'Rejected' ? 1 : 2,
+    };
+  });
+
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={data}>
+      <LineChart data={newData}>
         <Line
           type="monotone"
-          dataKey="atendidas"
+          dataKey="waiting"
           stroke="#7975cf"
           strokeWidth={2}
         />
+
         <Line
           type="monotone"
-          dataKey="rejeitadas"
+          dataKey="accepted"
           stroke="#db765d"
           strokeWidth={2}
         />
+        <Line
+          type="monotone"
+          dataKey="inProgress"
+          stroke="#52a05c"
+          strokeWidth={2}
+        />
+        <Line
+          type="monotone"
+          dataKey="rejected"
+          stroke="#f0ac3e"
+          strokeWidth={2}
+        />
+
         <Tooltip />
+
         <YAxis />
       </LineChart>
     </ResponsiveContainer>
