@@ -12,20 +12,33 @@ import { BaseInput, BasePasswordInput } from '../components';
 
 import { AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
 import { BaseButton } from '../components/baseButton';
+import { AuthContext } from '../context/Auth';
+import { useContext } from 'react';
+import { redirect } from 'react-router-dom';
 
 interface ValuesProps extends FieldValues {
-  user: string;
+  email: string;
   password: string;
 }
 
 export function LoginAndRegister() {
   const { handleSubmit, control, reset } = useForm<ValuesProps>();
 
-  function onSubmit(values: ValuesProps) {
-    console.log(values);
+  const { signIn } = useContext(AuthContext);
 
-    reset();
+  async function onSubmit(values: ValuesProps) {
+    try {
+      await signIn({
+        email: values.email,
+        password: values.password,
+      });
+      reset();
+      redirect('/dash');
+    } catch (error) {
+      console.log(error);
+    }
   }
+
   return (
     <Box
       display="flex"
@@ -62,7 +75,7 @@ export function LoginAndRegister() {
             }}
           >
             <VStack w="90%" spacing={5}>
-              <BaseInput name="user" placeholder="Usuário" control={control}>
+              <BaseInput name="email" placeholder="Email" control={control}>
                 <AiOutlineUser color="gray" size={24} />
               </BaseInput>
               <BasePasswordInput
