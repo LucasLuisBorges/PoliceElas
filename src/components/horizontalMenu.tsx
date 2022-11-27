@@ -1,4 +1,6 @@
 import { Box, HStack, useDisclosure } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { AuthContext } from '../context/Auth';
 import {
   BellNotification,
   ProfileMenu,
@@ -8,6 +10,7 @@ import {
 } from './';
 
 export function HorizontalMenu() {
+  const { user } = useContext(AuthContext);
   const {
     isOpen: isOpenAccountModal,
     onOpen: onOpenAccountModal,
@@ -34,7 +37,7 @@ export function HorizontalMenu() {
         <SearchInputMenu />
         <BellNotification isNotification={true} />
         <ProfileMenu
-          name="Lucas Policial"
+          name={user!.social_name}
           urlImage="https://github.com/LucasLuisBorges.png"
           onMyAccount={onOpenAccountModal}
           onHelp={onOpenHelpModal}

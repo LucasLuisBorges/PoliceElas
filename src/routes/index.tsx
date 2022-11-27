@@ -6,7 +6,6 @@ import { Dashboard, LoginAndRegister, History } from '../pages';
 
 export function Router() {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   if (!user) {
     return (

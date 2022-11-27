@@ -3,13 +3,13 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
   Text,
   VStack,
 } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { AuthContext } from '../context/Auth';
 
 interface MyAccountModalProps {
   isOpen: boolean;
@@ -17,6 +17,7 @@ interface MyAccountModalProps {
 }
 
 export function MyAccountModal({ isOpen, onClose }: MyAccountModalProps) {
+  const { user } = useContext(AuthContext);
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -26,25 +27,19 @@ export function MyAccountModal({ isOpen, onClose }: MyAccountModalProps) {
         <ModalBody>
           <VStack alignItems="start">
             <Text>
-              <strong>Nome:</strong> Lucas Policial
+              <strong>Nome:</strong> {user!.full_name}
             </Text>
             <Text>
-              <strong>Idade:</strong> 23 anos
+              <strong>Email:</strong> {user!.email}
             </Text>
             <Text>
-              <strong>Numero de registro:</strong> 121212121
+              <strong>Telefone:</strong> {user!.phone}
             </Text>
             <Text>
-              <strong>Departamento:</strong> 1212-20
+              <strong>Numero de registro:</strong> 1212-20
             </Text>
           </VStack>
         </ModalBody>
-
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3}>
-            Editar
-          </Button>
-        </ModalFooter>
       </ModalContent>
     </Modal>
   );

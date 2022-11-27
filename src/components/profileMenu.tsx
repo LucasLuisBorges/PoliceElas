@@ -4,9 +4,9 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Image,
   HStack,
   Text,
+  Avatar,
 } from '@chakra-ui/react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { IoIosArrowDown, IoMdHelp } from 'react-icons/io';
@@ -18,21 +18,16 @@ interface ProfileMenuProps {
   onHelp: () => void;
 }
 
-export function ProfileMenu({
-  name,
-  urlImage,
-  onMyAccount,
-  onHelp,
-}: ProfileMenuProps) {
+export function ProfileMenu({ name, onMyAccount, onHelp }: ProfileMenuProps) {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<IoIosArrowDown />} bg="white">
         <HStack>
-          <Image
+          <Avatar
             boxSize="2rem"
             borderRadius="full"
-            src={urlImage}
-            alt="profile image"
+            name={name}
+            src="https://bit.ly/broken-link"
             mr="12px"
           />
           <Text>{name}</Text>
