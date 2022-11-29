@@ -29,6 +29,7 @@ interface OccurrenceTableCardProps {
 }
 
 import { ConfirmAlert } from './confirmAlert';
+import { MyProfileModal } from './myProfileModal';
 
 export function OccurrenceTableCard({
   name,
@@ -46,6 +47,11 @@ export function OccurrenceTableCard({
       : 'Concluída',
   );
   const { blur } = useContext(TableContext);
+  const {
+    isOpen: isOpenProfileModal,
+    onOpen: onOpenProfileModal,
+    onClose: onCloseProfileModal,
+  } = useDisclosure();
 
   const {
     onOpen: onOpenAccept,
@@ -132,7 +138,7 @@ export function OccurrenceTableCard({
         onConfirm={handleReject}
       />
 
-      <HStack>
+      <HStack onClick={onOpenProfileModal}>
         <Box pos="relative">
           <Avatar
             boxSize="2rem"
@@ -231,6 +237,10 @@ export function OccurrenceTableCard({
           </Text>
         )}
       </Box>
+      <MyProfileModal
+        isOpen={isOpenProfileModal}
+        onClose={onCloseProfileModal}
+      />
     </HStack>
   );
 }

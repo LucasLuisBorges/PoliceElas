@@ -6,6 +6,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { Graphc } from '../../components/graphc';
 import { api, socket } from '../../services';
 import { IStatus } from '../../components/occurrenceTableCard';
+
 export interface Call {
   created_at: string;
   id: string;
