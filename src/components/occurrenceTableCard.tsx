@@ -26,6 +26,15 @@ interface OccurrenceTableCardProps {
   status: IStatus;
   id: string;
   onClick: () => void;
+  full_name: string;
+  social_name: string;
+  address: string;
+  cep: number;
+  complement: string;
+  cpf: number;
+  email: string;
+  gender: string;
+  phone: string;
 }
 
 import { ConfirmAlert } from './confirmAlert';
@@ -38,6 +47,15 @@ export function OccurrenceTableCard({
   status,
   id,
   onClick,
+  address,
+  cep,
+  complement,
+  cpf,
+  email,
+  full_name,
+  gender,
+  phone,
+  social_name,
 }: OccurrenceTableCardProps) {
   const [text, setText] = useState(
     status === 'In progress'
@@ -138,7 +156,7 @@ export function OccurrenceTableCard({
         onConfirm={handleReject}
       />
 
-      <HStack onClick={onOpenProfileModal}>
+      <HStack onClick={onOpenProfileModal} cursor="pointer">
         <Box pos="relative">
           <Avatar
             boxSize="2rem"
@@ -240,6 +258,16 @@ export function OccurrenceTableCard({
       <MyProfileModal
         isOpen={isOpenProfileModal}
         onClose={onCloseProfileModal}
+        full_name={full_name}
+        address={address}
+        cep={cep}
+        complement={complement}
+        cpf={cpf}
+        email={email}
+        gender={gender}
+        phone={phone}
+        social_name={social_name}
+        status={status}
       />
     </HStack>
   );

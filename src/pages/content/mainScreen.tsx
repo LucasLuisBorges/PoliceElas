@@ -103,6 +103,15 @@ export function MainScreen() {
               number={call.user.phone}
               date={call.created_at}
               status={call.status}
+              full_name={call.user.full_name}
+              social_name={call.user.social_name}
+              cep={call.user.cep}
+              address={call.user.address}
+              complement={call.user.complement}
+              email={call.user.email}
+              cpf={call.user.cpf}
+              phone={call.user.phone}
+              gender={call.user.gender}
               onClick={fetchCalls}
             />
           ))}
